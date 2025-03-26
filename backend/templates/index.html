@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Scraper Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+    <!-- Prevent caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script type="module" src="{{ url_for('static', path='main.js') }}"></script>
+</head>
+<body>
+    <h1>Web Scraping Dashboard</h1>
+    <!-- Loading animation -->
+    <div id="loading" style="display:none;">
+        <div class="spinner"></div>
+        <p>Scraping in progress, please wait...</p>
+    </div>
+
+    {% include 'dashboard_table.html' %}
+
+    <!-- Add New Row Form -->
+    {% include 'add_new_URLs.html' %}
+    {% include 'celery_scheduler.html' %}
+    
+</body>
+</html>

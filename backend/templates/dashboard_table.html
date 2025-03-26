@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Table</title>
+</head>
+<body>
+
+    <!-- Global Toggle Button -->
+    <button id="toggleAllRowbtn" class="global-toggle" onclick="toggleAllNonSignificantRows()">Show All significant Rows</button>
+
+    <!-- Table -->
+    <table id="grant-table">
+        <thead>
+            <tr>
+                <th>Grant Program Page</th>
+                <th id="scrape-datetime" onclick="sortTableByDate()">
+                    Last Scrape DateTime (Ottawa Time)
+                    <span id="sort-icon" class="sort-icon">▼</span>
+                </th>
+                <th>Change Status</th>
+                <th>Actions</th>
+            </tr>
+            <!-- Filter Row -->
+            <tr>
+                <th><input type="text" id="filter-page" placeholder="Filter Page" onkeyup="filterTable()"></th>
+                <th><input type="text" id="filter-date" placeholder="Filter Date" onkeyup="filterTable()"></th>
+                <th><input type="text" id="filter-status" placeholder="Filter Status" onkeyup="filterTable()"></th>
+                <th><button id="scrape-all-btn">Scrape All</button></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grant in grants %}
+            <tr id="{{ grant.page }}" class="{% if 'SIGNIFICANT CHANGE!' in grant.status %}significant{% elif 'TRIVIAL CHANGE!' in grant.status %}trivial{% else %}default{% endif %}">
+                <td>{{ grant.page }}</td>
+                <td>
+                    {{ grant.date }}
+                </td>
+                <td>
+                    {{ grant.status }} <br>
+                    <!-- Placeholder for the review timestamp -->
+                    <span class="review-timestamp"></span>
+                </td>
+                <td>
+                    <button onclick="toggleDiff(this)">View Details</button>
+                    <button class="scrape-again-btn" data-url="{{ grant.page }}"
+                    {% if grant.status == 'Invalid' %}disabled{% endif %} >Scrape Again</button>
+                    <button class="show-prior-diff-btn" data-url="{{ grant.page }}"
+                    {% if grant.status == 'Invalid' %}disabled{% endif %} >Show Previous Change</button>
+                    <button onclick="toggleStatus(this, '{{grant.page | safe}}')">Flag as SIGNIFICANT/TRIVIAL</button>
+                    <button id="email-button" onclick="promptEmail(this)">Email This</button>
+                    <button onclick="markAsReviewed(this, '{{grant.date}}')"
+                    {% if grant.status == 'Invalid' %}disabled{% endif %}>Mark as Reviewed</button>
+                    <button onclick="deleteRow(this)">Delete Row</button>
+                </td>
+            </tr>
+            <tr class="diff-row" style="display:none;">
+                <!-- ensure that the diff content is rendered as HTML in your table, use the safe filter in Jinja2 templates -->
+                <td colspan="4">{{ grant.diff | safe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

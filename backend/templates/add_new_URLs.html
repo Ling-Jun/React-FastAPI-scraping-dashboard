@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grant Application</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px; /* Optional: adds space between the two sections */
+        }
+        .instructions, .form-section {
+            flex: 1;
+            padding: 20px;
+            background-color: #cabdbd;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="instructions">
+            {% include 'app_instructions.html' %}
+        </div>
+        <div class="form-section">
+            <h2>Add New Grant Programs</h2>
+            <p>Please add the URLs separated by commas.</p>
+            <form id="add-grant-form">
+                <textarea class="wrap-textarea" id="grant-urls" placeholder="Enter URLs..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <h4>Edit Keywords</h4> 
+            {% include 'update_keyword_list.html' %}
+        </div>
+    </div>
+</body>
+</html>

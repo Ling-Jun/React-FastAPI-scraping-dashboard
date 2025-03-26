@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyword Editor</title>
+    <style>
+        #keyword-div {
+            width: 80%;
+            margin: 0 auto;
+            display: none;
+            margin-top: 10px;
+            background-color: #cabdbd;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <button id="edit-keywords-btn">Edit Keywords</button>
+    <div id="keyword-div">
+        <form id="keywords-form">
+            <textarea id="keywords-textarea" name="keywords" rows="10" cols="50">{{ keywords }}</textarea>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+*pycache*
+*.in
+*readme.md
+*webpage_tracking_repo*
+*imgs*
+.dockerignore
+*windows_driver*
+*.bat
+*_V0*
+*_v1*

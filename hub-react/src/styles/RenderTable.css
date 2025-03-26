@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+    table-layout: auto; /* Distribute column widths evenly */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th {
+    border: 1px solid #ccc;
+    background-color: #1f8b9e;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    word-break: break-word;
+    border: 1px solid #ccc;
+    /* background-color: #f4f4f4; */
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    white-space: normal;
+    /* text-overflow: ellipsis; */
+    word-wrap: break-word;
+  }
+
+
+.significant {
+    background-color: rgb(128, 189, 128);
+    color: rgb(112, 73, 73); /* Optional: Change text color for better readability */
+}
+.trivial {
+    background-color: rgb(185, 201, 129);
+    color: rgb(48, 32, 32); /* Optional: Change text color for better readability */
+}

@@ -1,0 +1,27 @@
+# python==3.12
+# gradio
+# webdriver-manager
+fastapi
+uvicorn
+spacy
+sentence-transformers
+datasets
+selenium
+transformers
+bs4
+gitpython
+azure-storage-blob
+PyGithub
+# No need for ollama-haystack, since scrapegraphAI already connects to LLM models (including Ollama models) with LongChain
+scrapegraphai
+celery[redis]
+python-multipart
+pydantic
+aiofiles
+aiocsv
+
+nltk
+rake_nltk
+rank-bm25
+gensim
+

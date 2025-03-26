@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Celery Beat Scheduler</title>
+    <style>
+        #schedule-div {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+            margin-top: 10px;
+            display: none;
+            background-color: #cabdbd;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="schedule-div">
+        <h3>Add or Update Schedule</h3>
+        <form id="schedule-form">
+            Schedule: minute hour  day_of_week day_of_month
+            <textarea id="schedule-text" name="schedules" rows="10" cols="50">{{ schedules }}</textarea>
+            <br>
+            <button type="submit">Save Schedule</button>
+        </form>
+    </div>
+</body>
+</html>
