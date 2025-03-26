@@ -60,7 +60,7 @@ class Grant(BaseModel):
 class Ghub(Enum):
     GITHUB_TOKEN = str(config["github"]["GITHUB_TOKEN"])
     GITHUB_USERNAME = config["github"]["GITHUB_USERNAME"]
-    REPO_NAME = "CGH_tracking"
+    REPO_NAME = <your-data-repo-name>
 
 
 class AZ(Enum):
